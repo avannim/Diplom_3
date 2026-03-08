@@ -2,14 +2,9 @@ package enums;
 
 public enum APIEndpoints {
     //User
-    CREATE_USER("/auth/register"),
-    ACTIONS_USER("/auth/user"),
-    LOGIN_USER("/auth/login"),
-    LOGOUT_USER("/auth/logout"),
-
-    //Order
-    ACTIONS_ORDER("/orders"),
-    ALL_ORDERS("/orders/all");
+    CREATE_USER("/api/auth/register"),
+    ACTIONS_USER("/api/auth/user"),
+    LOGIN_USER("/api/auth/login");
 
     private final String path;
 
