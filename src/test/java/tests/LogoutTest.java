@@ -5,6 +5,7 @@ import dto.request.CreateUserRequest;
 import dto.response.CreateAndLoginUserResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,13 +25,12 @@ public class LogoutTest {
     private final RestSteps rest = new RestSteps();
 
     CreateAndLoginUserResponse user;
-    private final Config conf = new Config();
     private ConstructorPage page;
     public WebDriver driver;
 
     @BeforeEach
     public void setUp() {
-        driver = conf.setupBrowser("chrome");
+        driver = Config.setupBrowser("chrome");
         user = rest.createUserByRest(new CreateUserRequest("MauMen15@nation.org", "miey32gaui", "Мау"));
         driver.get(Config.baseUri);
         rest.setLocalStorage(user, driver);
@@ -38,6 +38,7 @@ public class LogoutTest {
     }
 
     @Test
+    @DisplayName("Тест выхода из личного аккаунта")
     public void checkLogoutTest(){
         PersonalAccountPage accountPage = page.clickPersonalAccountButton();
         accountPage.clickLogoutButton();

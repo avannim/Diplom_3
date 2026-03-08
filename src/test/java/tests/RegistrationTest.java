@@ -4,6 +4,7 @@ import config.Config;
 import dto.response.CreateAndLoginUserResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,7 @@ public class RegistrationTest {
     }
 
     @Test
+    @DisplayName("Тест успешной регистрации пользователя")
     public void checkSuccessfulRegistrationTest(){
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.setRegistrationFormFields("Мау","MauMen15@nation.org","miey32gaui");
@@ -39,6 +41,7 @@ public class RegistrationTest {
     }
 
     @Test
+    @DisplayName("Тест ошибки ввода некорректного пароля при регистрации пользователя")
     public void checkErrorRegistrationWithWrongPasswordTest(){
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.setNameField("Мау");

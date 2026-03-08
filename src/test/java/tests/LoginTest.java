@@ -5,6 +5,7 @@ import dto.request.CreateUserRequest;
 import dto.response.CreateAndLoginUserResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginTest {
 
     private final RestSteps rest = new RestSteps();
-    private final CreateUserRequest newUser = new CreateUserRequest("MauMen15@nation.org", "miey32gaui", "Мау");;
+    private final CreateUserRequest newUser = new CreateUserRequest("MauMen15@nation.org", "miey32gaui", "Мау");
     CreateAndLoginUserResponse user;
     ConstructorPage homePage;
     public WebDriver driver;
@@ -31,6 +32,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Тест авторизации с главной страницы")
     public void checkLoginfromHomePageTest(){
         driver.get(Config.baseUri);
         homePage = new ConstructorPage(driver);
@@ -42,6 +44,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Тест авторизации со страницы Личного Кабинета")
     public void checkLoginFromPersonalAccountButtonTest(){
         driver.get(Config.baseUri);
         homePage = new ConstructorPage(driver);
@@ -54,6 +57,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Тест авторизации со страницы регистрации")
     public void checkLoginFromRegistrationPageTest(){
         RegistrationPage regisrationPage = new RegistrationPage(driver);
         LoginPage loginPage = regisrationPage.clickLoginButton();
@@ -64,6 +68,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Тест авторизации со страницы восттановления пароля")
     public void checkLoginFromRecoveryPasswordPageTest(){
         RecoveryPage recoveryPage = new RecoveryPage(driver);
         LoginPage loginPage= recoveryPage.clickLoginButton();
